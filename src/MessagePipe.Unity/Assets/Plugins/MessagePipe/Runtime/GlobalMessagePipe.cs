@@ -39,6 +39,18 @@ namespace MessagePipe
             return provider.GetRequiredService<IPublisher<TMessage>>();
         }
 
+        public static IBufferedPublisher<TMessage> GetBufferedPublisher<TMessage>()
+        {
+            ThrowIfNotInitialized();
+            return provider.GetRequiredService<IBufferedPublisher<TMessage>>();
+        }
+        
+        public static IBufferedSubscriber<TMessage> GetBufferedSubscriber<TMessage>()
+        {
+            ThrowIfNotInitialized();
+            return provider.GetRequiredService<IBufferedSubscriber<TMessage>>();
+        }
+
         public static ISubscriber<TMessage> GetSubscriber<TMessage>()
         {
             ThrowIfNotInitialized();
